@@ -29,6 +29,15 @@ public class CharacterManager extends Manager {
 		return RESTServices.CHARACTER;
 	}
 
+	/**
+	 * Search List of Character as per provided parameters.
+	 * @param queryString: Query String to hold param-value pair like name=Rings. It can be multiple pairs separate by '&amp;'
+	 * @param sort: Like name:asc; id:desc etc.
+	 * @param limit to limit number of records.
+	 * @param page specific page.
+	 * @param offset Record's offset.
+	 * @return List of Character instances matching to the provided parameters.
+	 */
 	public List<Character> getCharacters(String queryString, String sort, int limit, int page, int offset) {
 		Characters characters = (Characters)super.get(Characters.class, queryString, sort, limit, page, offset);
 		return characters.getCharacters();

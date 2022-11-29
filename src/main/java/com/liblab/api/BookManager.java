@@ -21,6 +21,10 @@ import com.liblab.api.model.Books;
 import com.liblab.api.model.Chapter;
 import com.liblab.api.model.Chapters;
 
+/**
+ * Manager class to call actions on /book end-point:
+ * @author Muhammad Ali Amir
+ */
 public class BookManager extends Manager {
 
 	private static Logger logger = Logger.getLogger(BookManager.class.getName());
@@ -29,6 +33,15 @@ public class BookManager extends Manager {
 		return RESTServices.BOOK;
 	}
 
+	/**
+	 * Search List of Books as per provided parameters.
+	 * @param queryString: Query String to hold param-value pair like name=Rings. It can be multiple pairs separate by '&amp;'
+	 * @param sort: Like name:asc; id:desc etc.
+	 * @param limit to limit number of records.
+	 * @param page specific page.
+	 * @param offset Record's offset.
+	 * @return List of Book instances matching to the provided parameters.
+	 */
 	public List<Book> getBooks(String queryString, String sort, int limit, int page, int offset) {
 		Books books = (Books)super.get(Books.class, queryString, sort, limit, page, offset);
 		return books.getBooks();

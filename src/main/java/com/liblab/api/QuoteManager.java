@@ -23,6 +23,15 @@ public class QuoteManager extends Manager {
 		return RESTServices.QUOTE;
 	}
 
+	/**
+	 * Search List of Quotes as per provided parameters.
+	 * @param queryString: Query String to hold param-value pair like name=Rings. It can be multiple pairs separate by '&amp;'
+	 * @param sort: Like name:asc; id:desc etc.
+	 * @param limit to limit number of records.
+	 * @param page specific page.
+	 * @param offset Record's offset.
+	 * @return List of Quote instances matching to the provided parameters.
+	 */
 	public List<Quote> getMovies(String queryString, String sort, int limit, int page, int offset) {
 		Quotes quotes = (Quotes)super.get(Quotes.class, queryString, sort, limit, page, offset);
 		return quotes.getQuotes();

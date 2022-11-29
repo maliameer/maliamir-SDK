@@ -25,6 +25,15 @@ public class MovieManager extends Manager {
 		return RESTServices.MOVIE;
 	}
 
+	/**
+	 * Search List of Movies as per provided parameters.
+	 * @param queryString: Query String to hold param-value pair like name=Rings. It can be multiple pairs separate by '&amp;'
+	 * @param sort: Like name:asc; id:desc etc.
+	 * @param limit to limit number of records.
+	 * @param page specific page.
+	 * @param offset Record's offset.
+	 * @return List of Movie instances matching to the provided parameters.
+	 */
 	public List<Movie> getMovies(String queryString, String sort, int limit, int page, int offset) {
 		Movies movies = (Movies)super.get(Movies.class, queryString, sort, limit, page, offset);
 		return movies.getMovies();

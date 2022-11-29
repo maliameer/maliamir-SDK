@@ -23,6 +23,15 @@ public class ChapterManager extends Manager {
 		return RESTServices.CHAPTER;
 	}
 
+	/**
+	 * Search List of Chapters as per provided parameters.
+	 * @param queryString: Query String to hold param-value pair like name=Rings. It can be multiple pairs separate by '&amp;'
+	 * @param sort: Like name:asc; id:desc etc.
+	 * @param limit to limit number of records.
+	 * @param page specific page.
+	 * @param offset Record's offset.
+	 * @return List of Chapter instances matching to the provided parameters.
+	 */
 	public List<Chapter> getChapters(String queryString, String sort, int limit, int page, int offset) {
 		Chapters chapters = (Chapters)super.get(Chapters.class, queryString, sort, limit, page, offset);
 		return chapters.getChapters();
